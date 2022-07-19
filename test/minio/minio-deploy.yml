@@ -31,9 +31,15 @@ spec:
         - ":9001"
         env:
         - name: MINIO_ACCESS_KEY
-          value: "admin"
+          valueFrom:
+            secretKeyRef:
+              name: secret-minio
+              key: user
         - name: MINIO_SECRET_KEY
-          value: "password"
+          valueFrom:
+            secretKeyRef:
+              name: secret-minio
+              key: password
         ports:
         - containerPort: 9001
         # readinessProbe:

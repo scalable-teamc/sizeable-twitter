@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: post
+spec:
+  selector:
+    app: post
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 5466

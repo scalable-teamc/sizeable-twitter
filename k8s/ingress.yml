@@ -17,67 +17,67 @@ spec:
           service: 
             name: auth
             port: 
-              number: 8082
+              number: 80
       - path: /post
         pathType: Exact
         backend:
           service: 
             name: post
             port: 
-              number: 5466
+              number: 80
       - path: /get
         pathType: Prefix
         backend:
           service: 
             name: post
             port: 
-              number: 5466
+              number: 80
       - path: /recent
         pathType: Exact
         backend:
           service: 
             name: post
             port: 
-              number: 5466
+              number: 80
       - path: /user-post
         pathType: Prefix
         backend:
           service: 
             name: post
             port: 
-              number: 5466
+              number: 80
       - path: /like
         pathType: Exact
         backend:
           service: 
             name: post
             port: 
-              number: 5466
+              number: 80
       - path: /unlike
         pathType: Exact
         backend:
           service: 
             name: post
             port: 
-              number: 5466
+              number: 80
       - path: /profile
         pathType: Prefix
         backend:
           service: 
             name: profile
             port: 
-              number: 8084
+              number: 80
       - path: /profile/getshort
         pathType: Prefix
         backend:
           service: 
             name: profile
             port: 
-              number: 8084
+              number: 80
       - path: /feed
         pathType: Prefix
         backend:
           service: 
             name: feed
             port: 
-              number: 5000
+              number: 80

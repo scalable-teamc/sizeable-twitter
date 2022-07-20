@@ -81,8 +81,8 @@ spec:
             name: feed
             port: 
               number: 80
-      - path: /socket
-        pathType: Exact
+      - path: /socket.io
+        pathType: Prefix
         backend:
           service:
             name: feed

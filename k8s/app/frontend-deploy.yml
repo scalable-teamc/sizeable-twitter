@@ -18,13 +18,13 @@ spec:
     spec:
       containers:
       - image: ghcr.io/scalable-teamc/frontend/frontend:latest
-        imagePullPolicy: Always
         name: frontend
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
-      restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+      imagePullSecrets:
+        - name: myregistrykey

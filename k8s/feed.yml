@@ -1,0 +1,39 @@
+# Database key
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feed
+  labels:
+    app: feed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feed
+  template:
+    metadata:
+      labels:
+        app: feed
+    spec:
+      containers:
+      - name: feed
+        image: ghcr.io/scalable-teamc/backend/feed:latest
+        command: ["python","feed_controller.py"]
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: secret-db
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: secret-db
+                key: password
+          - name: POSTGRES_DB
+            valueFrom:
+              secretKeyRef:
+                name: secret-db
+                key: user
+      imagePullSecrets:
+        - name: myregistrykey

@@ -2,6 +2,8 @@ kind: Service
 apiVersion: v1
 metadata:
   name: post
+  annotations:
+    traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
 spec:
   selector:
     app: post

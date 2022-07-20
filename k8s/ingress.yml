@@ -25,13 +25,6 @@ spec:
             name: post
             port: 
               number: 5466
-      - path: /post
-        pathType: Exact
-        backend:
-          service: 
-            name: post
-            port: 
-              number: 5466
       - path: /get
         pathType: Prefix
         backend:

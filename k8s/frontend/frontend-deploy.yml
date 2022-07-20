@@ -3,24 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    name: vue
-  name: vue
+    name: frontend
+  name: frontend
 spec:
-  progressDeadlineSeconds: 2147483647
   replicas: 1
   selector:
     matchLabels:
-      app: vue
+      app: frontend
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: vue
+        app: frontend
     spec:
       containers:
-      - image: mjhea0/vue-kubernetes:latest
+      - image: ghcr.io/scalable-teamc/frontend/frontend:latest
         imagePullPolicy: Always
-        name: vue
+        name: frontend
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File

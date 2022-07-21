@@ -20,3 +20,11 @@ def random_Profile(uid, username):
         "display_name": username + ''.join(random.choice(letters) for _ in range(4)),
         "description": ''.join(random.choice(letters) for _ in range(20))
     }
+
+def random_Post(uid, username):
+    return {
+        "uid": uid,
+        "username": username,
+        "content": ''.join(random.choice(letters) for _ in range(40)),
+        "image": None
+    }

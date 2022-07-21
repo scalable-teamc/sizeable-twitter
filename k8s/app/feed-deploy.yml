@@ -36,6 +36,6 @@ spec:
                 name: secret-db
                 key: user
           - name: REDIS
-            value: redis
+            value: redis://redis:6379
       imagePullSecrets:
         - name: myregistrykey

@@ -1,0 +1,55 @@
+# Minio key
+# Database key
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: post
+  labels:
+    app: post
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: post
+  template:
+    metadata:
+      labels:
+        app: post
+    spec:
+      containers:
+      - name: post
+        image: ghcr.io/scalable-teamc/backend/post:latest
+        command: ["python","post_app.py"]
+        env:
+          - name: MINIO_URL
+            valueFrom:
+              secretKeyRef:
+                name: secret-minio
+                key: url
+          - name: MINIO_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: secret-minio
+                key: user
+          - name: MINIO_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: secret-minio
+                key: password
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: secret-db
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: secret-db
+                key: password
+          - name: POSTGRES_DB
+            valueFrom:
+              secretKeyRef:
+                name: secret-db
+                key: user
+      imagePullSecrets:
+        - name: myregistrykey

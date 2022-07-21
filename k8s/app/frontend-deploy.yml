@@ -12,19 +12,11 @@ spec:
       app: frontend
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: frontend
     spec:
       containers:
       - image: ghcr.io/scalable-teamc/frontend/frontend:latest
         name: frontend
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
       imagePullSecrets:
         - name: myregistrykey
